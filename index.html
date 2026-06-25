@@ -1,4 +1,227 @@
-<!DOCTYPE html><html><head><title>Nova Fit AI</title></head><body>
-<h1>Nova Fit AI</h1><p>AI-powered fitness content.</p>
-<p><a href="/terms.html">Terms of Service</a> | <a href="/privacy.html">Privacy Policy</a></p>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Fit AI — AI Fitness Creator on TikTok</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray: #888;
+      --accent: #7c3aed;
+      --accent2: #a855f7;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid #1a1a1a; }
+    .logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
+    .logo span { color: var(--accent2); }
+    nav ul { display: flex; gap: 32px; list-style: none; }
+    nav ul a { font-size: 14px; color: var(--gray); transition: color 0.2s; }
+    nav ul a:hover { color: var(--white); }
+    .nav-cta { background: var(--accent); color: white; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+
+    .hero { text-align: center; padding: 120px 24px 80px; max-width: 860px; margin: 0 auto; }
+    .badge { display: inline-block; background: #1a0a2e; color: var(--accent2); border: 1px solid #3b1f6e; padding: 6px 16px; border-radius: 100px; font-size: 13px; font-weight: 500; margin-bottom: 32px; }
+    .hero h1 { font-size: clamp(40px, 7vw, 72px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; }
+    .hero h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 20px; color: var(--gray); max-width: 560px; margin: 0 auto 40px; }
+    .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: white; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 16px; }
+    .btn-secondary { border: 1px solid #333; color: var(--white); padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 16px; }
+
+    .stats { display: flex; justify-content: center; gap: 64px; padding: 64px 24px; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 42px; font-weight: 900; letter-spacing: -1px; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-label { font-size: 14px; color: var(--gray); margin-top: 4px; }
+
+    .section { padding: 96px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 13px; font-weight: 600; color: var(--accent2); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+    .section h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; }
+    .section-sub { font-size: 18px; color: var(--gray); max-width: 560px; margin-bottom: 56px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .card { background: #111; border: 1px solid #1f1f1f; border-radius: 12px; padding: 32px; }
+    .card-icon { font-size: 32px; margin-bottom: 16px; }
+    .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .card p { font-size: 15px; color: var(--gray); line-height: 1.7; }
+
+    /* How it works */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; counter-reset: steps; }
+    .step { padding: 32px; border-right: 1px solid #1a1a1a; position: relative; }
+    .step:last-child { border-right: none; }
+    .step-num { font-size: 40px; font-weight: 900; color: #222; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+    /* API section */
+    .api-section { background: #0d0d0d; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; padding: 96px 24px; }
+    .api-inner { max-width: 860px; margin: 0 auto; }
+    .api-inner h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; }
+    .api-inner p { font-size: 17px; color: var(--gray); margin-bottom: 24px; }
+    .permission-list { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+    .permission-item { background: #111; border: 1px solid #1f1f1f; border-radius: 10px; padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; }
+    .permission-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .permission-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .permission-desc { font-size: 14px; color: var(--gray); }
+
+    .cta-section { text-align: center; padding: 120px 24px; }
+    .cta-section h2 { font-size: clamp(32px, 5vw, 56px); font-weight: 900; letter-spacing: -1.5px; margin-bottom: 20px; }
+    .cta-section p { font-size: 18px; color: var(--gray); max-width: 480px; margin: 0 auto 40px; }
+
+    footer { border-top: 1px solid #1a1a1a; padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 14px; color: var(--gray); }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 13px; color: #444; }
+
+    @media (max-width: 640px) {
+      nav { padding: 20px 24px; }
+      nav ul { display: none; }
+      .stats { gap: 32px; }
+      .steps { grid-template-columns: 1fr; }
+      .step { border-right: none; border-bottom: 1px solid #1a1a1a; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Nova<span>Fit</span> AI</div>
+  <ul>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#api-use">API Use</a></li>
+    <li><a href="mailto:ryanpaulcaruso@gmail.com">Contact</a></li>
+  </ul>
+  <a href="https://www.tiktok.com/@iamnova.fit" class="nav-cta" target="_blank" rel="noopener">Follow on TikTok</a>
+</nav>
+
+<section class="hero">
+  <div class="badge">AI Fitness Creator · @iamnova.fit</div>
+  <h1>Daily fitness content.<br /><span>Powered by AI.</span></h1>
+  <p>Nova is an AI-powered fitness influencer delivering daily workout tips, nutrition science, and mindset content to the TikTok fitness community.</p>
+  <div class="hero-ctas">
+    <a href="https://www.tiktok.com/@iamnova.fit" class="btn-primary" target="_blank" rel="noopener">Follow @iamnova.fit</a>
+    <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">4x</div>
+    <div class="stat-label">Daily posts</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">AI-generated content</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">9:16</div>
+    <div class="stat-label">Vertical video format</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Manual steps per post</div>
+  </div>
+</div>
+
+<section class="section" id="content">
+  <div class="section-label">What Nova Posts</div>
+  <h2>Fitness content.<br />Four times a day.</h2>
+  <p class="section-sub">Nova covers every angle of the fitness journey — from training science to mindset.</p>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-icon">🏋️</div>
+      <h3>Strength Training</h3>
+      <p>Compound lifts, progressive overload, protein timing — data-driven content for serious gym-goers.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🥗</div>
+      <h3>Nutrition</h3>
+      <p>Meal prep, hydration, macro tracking — practical nutrition advice that actually works.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧠</div>
+      <h3>Mindset & Recovery</h3>
+      <p>Consistency frameworks, sleep optimization, and the mental side of transformation.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#0d0d0d;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:96px 24px;" id="how-it-works">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">How It Works</div>
+    <h2 style="font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-1px;margin-bottom:40px;">From script to post — fully automated.</h2>
+    <div class="steps" style="background:#111;border:1px solid #1f1f1f;border-radius:12px;overflow:hidden;">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Script Generation</h3>
+        <p>Claude AI writes a fitness script optimized for TikTok — hook, value, CTA — under 30 seconds.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Video Generation</h3>
+        <p>Higgsfield AI renders Nova performing the content using a consistent AI character identity.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Voice & Captions</h3>
+        <p>ElevenLabs generates Nova's voiceover. Creatomate adds synchronized word-by-word captions.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>TikTok Post</h3>
+        <p>The finished video is posted to @iamnova.fit via TikTok's Content Posting API on a 4x/day schedule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="api-section" id="api-use">
+  <div class="api-inner">
+    <div class="section-label" style="margin-bottom:16px;">TikTok API Integration</div>
+    <h2>How we use TikTok's API</h2>
+    <p>Nova Fit AI uses TikTok's Content Posting API exclusively to publish pre-produced fitness videos to the authorized creator account (@iamnova.fit). We do not collect data from viewers, engage in scraping, or interact with any account other than the one explicitly authorized by the account owner.</p>
+    <p>All content is pre-produced and reviewed before posting. The API is used solely for video upload and scheduling — no user data beyond the creator's access token is stored.</p>
+    <div class="permission-list">
+      <div class="permission-item">
+        <div class="permission-icon">📤</div>
+        <div>
+          <div class="permission-name">video.upload / video.publish</div>
+          <div class="permission-desc">Used to upload AI-generated fitness videos and publish them to the @iamnova.fit TikTok account on a scheduled basis. No other accounts are accessed.</div>
+        </div>
+      </div>
+      <div class="permission-item">
+        <div class="permission-icon">👤</div>
+        <div>
+          <div class="permission-name">user.info.basic</div>
+          <div class="permission-desc">Used to verify the authorized account identity before posting. No viewer or follower data is accessed or stored.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="cta-section">
+  <h2>Follow Nova on TikTok</h2>
+  <p>Daily fitness content — workouts, nutrition, mindset — powered by AI and posted automatically every day.</p>
+  <a href="https://www.tiktok.com/@iamnova.fit" class="btn-primary" target="_blank" rel="noopener">@iamnova.fit on TikTok</a>
+</section>
+
+<footer>
+  <div class="logo" style="font-size:16px;font-weight:700;">Nova<span style="color:#a855f7">Fit</span> AI</div>
+  <div class="footer-links">
+    <a href="/terms.html">Terms of Service</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="mailto:ryanpaulcaruso@gmail.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Nova Fit AI. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
